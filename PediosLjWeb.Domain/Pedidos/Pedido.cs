@@ -32,7 +32,7 @@ namespace PedidosLjWeb.Domain.Pedidos
 
         public Loja Loja { get; set; }
 
-        public List<ItemPedido> Itens { get; set; }
+        public List<ItemPedido> Itens { get; set; } = new List<ItemPedido>();
 
 
         public void CriarPedido(DateTime dataPedido, Cliente cliente, int idLoja, List<ItemPedido> itensPedido)
@@ -66,6 +66,7 @@ namespace PedidosLjWeb.Domain.Pedidos
             this.QuantidadeTotal = qtdTotal;
 
         }
+
 
         public void AdicionarItem(ItemPedido itemPedido) =>
         this.Itens.Add(itemPedido);

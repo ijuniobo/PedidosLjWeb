@@ -17,8 +17,6 @@ namespace PedidosLjWeb.Domain.ValueObject
             return Cpf.Substring(0,3) + "."  + Cpf.Substring(0, 3) + "." + Cpf.Substring(0, 3) + "-" + Cpf.Substring(0, 2);
         }
 
-        public static implicit operator string(CpfVObject d) => d.Cpf;
-        public static implicit operator CpfVObject(string Cpf) => new CpfVObject(Cpf);
 
     }
 }

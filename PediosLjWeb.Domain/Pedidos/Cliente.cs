@@ -26,7 +26,7 @@ namespace PedidosLjWeb.Domain.Pedidos
 
         public string Cep { get; set; }
 
-        public CpfVObject Cpf { get; set; }
+        public string Cpf { get; set; }
 
         public string Cnpj { get; set; }
 
@@ -40,15 +40,13 @@ namespace PedidosLjWeb.Domain.Pedidos
 
         public void CriarCliente(string nome, string endereco, string cidade, string bairro, string estado, string complemento, string cpf, string cnpj, string tipoPessoa, string login, string senha) 
         {
-            CpfVObject cpfVObject = new CpfVObject();
-            cpfVObject = cpf;
             this.Nome = nome;
             this.Endereco = endereco;
             this.Cidade = cidade;
             this.Bairro = bairro;
             this.Estado = estado;
             this.Complemento = complemento;
-            this.Cpf = cpfVObject.Formatado();
+            this.Cpf = cpf;
             this.Cnpj = cnpj;
             this.TipoPessoa = tipoPessoa;
             this.Login = login;
