@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PedidosLjWeb.Domain.ValueObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,11 @@ namespace PedidosLjWeb.Domain.Pedidos
 
         public int Quantidade { get; set; }
 
-        public decimal PrecoUnitario { get; set; }
+        public Monetario PrecoUnitario { get; set; }
 
-        public decimal PrecoTotal { get; set; }
+        public Monetario PrecoTotal { get; set; }
 
-        public decimal Desconto { get; set; }
+        public Monetario Desconto { get; set; }
 
         public int IdProduto { get; set; }
 

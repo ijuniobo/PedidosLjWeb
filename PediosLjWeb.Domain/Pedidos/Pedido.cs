@@ -1,6 +1,8 @@
-﻿using System;
+﻿using PedidosLjWeb.Domain.ValueObject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,11 +18,11 @@ namespace PedidosLjWeb.Domain.Pedidos
 
         public  int QuantidadeTotal { get; set; }
 
-        public decimal ValorTotal { get; set; }
+        public Monetario ValorTotal { get; set; }
 
-        public decimal Desconto { get; set; }
+        public Monetario Desconto { get; set; }
 
-        public decimal ValorLiquido { get; set; }
+        public Monetario ValorLiquido { get; set; }
 
         public int IdCliente { get; set; }
 
@@ -32,5 +34,42 @@ namespace PedidosLjWeb.Domain.Pedidos
 
         public List<ItemPedido> Itens { get; set; }
 
+
+        public void CriarPedido(DateTime dataPedido, Cliente cliente, int idLoja, List<ItemPedido> itensPedido)
+        {
+            if (cliente == null)
+               throw new Exception("Pedido deve conter um cliente!!");
+
+            if (idLoja == 0)
+                throw new Exception("Pedido deve conter uma loja!!");
+
+            if (itensPedido.Count() == 0)
+                throw new Exception("Pedido deve conter um item!!");
+
+            int qtdTotal = 0;
+            decimal vlTotal = 0;
+            foreach (var item in itensPedido)
+            {
+                qtdTotal = item.Quantidade;
+                item.PrecoTotal = item.Quantidade * item.PrecoUnitario;
+                qtdTotal += item.Quantidade;
+                vlTotal += item.PrecoTotal;
+                AdicionarItem(item);
+            }
+
+            this.IdLoja = idLoja;
+            this.IdCliente = cliente.Id;
+            this.DataPedido = dataPedido;
+
+            this.ValorLiquido = vlTotal;
+            this.ValorTotal = vlTotal;
+            this.QuantidadeTotal = qtdTotal;
+
+        }
+
+        public void AdicionarItem(ItemPedido itemPedido) =>
+        this.Itens.Add(itemPedido);
     }
+
+
 }
