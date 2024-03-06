@@ -23,5 +23,9 @@ namespace PedidosLjWeb.Domain.Pedidos
 
         public int IdPedido { get; set; }
 
+        public Pedido Pedido { get;}
+
+        public Produto Produto { get; }
+
     }
 }
