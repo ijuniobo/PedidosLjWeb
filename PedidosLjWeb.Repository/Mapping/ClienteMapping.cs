@@ -33,7 +33,7 @@ namespace PedidosLjWeb.Repository.Mapping
             builder.Property(x => x.Login).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Senha).IsRequired().HasMaxLength(100);
 
-            builder.HasMany(x => x.Pedidos).WithOne();
+            builder.HasMany(x => x.Pedidos).WithOne().OnDelete(DeleteBehavior.NoAction);
 
         }
     }

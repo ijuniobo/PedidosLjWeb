@@ -39,7 +39,7 @@ namespace PedidosLjWeb.Repository.Mapping
             builder.Property(x => x.IdCliente).IsRequired();
             builder.Property(x => x.IdLoja).IsRequired();
 
-            builder.HasMany(x => x.Itens).WithOne();
+            builder.HasMany(x => x.Itens).WithOne().OnDelete(DeleteBehavior.Restrict);
 
         }
     }
