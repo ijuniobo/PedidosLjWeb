@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PedidosLjWeb.Application.Profile
 {
-    internal class ProdutoProfile : AutoMapper.Profile
+    public class ProdutoProfile : AutoMapper.Profile
     {
        public ProdutoProfile()
          {

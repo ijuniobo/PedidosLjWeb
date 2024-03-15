@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using PedidosLjWeb.Application.Profile;
+using PedidosLjWeb.Application.Servicos;
 using PedidosLjWeb.Repository;
+using PedidosLjWeb.Repository.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,15 @@ builder.Services.AddDbContext<PedidosLjWebContext>(c =>
 {
     c.UseSqlServer(builder.Configuration.GetConnectionString("PedidosLjConnection"));
 });
+
+builder.Services.AddAutoMapper(typeof(ProdutoProfile).Assembly);
+
+
+//Repositories
+builder.Services.AddScoped<ProdutoRepository>();
+
+//Services
+builder.Services.AddScoped<ProdutoService>();
 
 
 var app = builder.Build();
