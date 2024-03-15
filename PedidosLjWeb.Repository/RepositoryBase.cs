@@ -38,7 +38,7 @@ namespace PedidosLjWeb.Repository
             return this.Context.Set<T>().ToList();
         }
 
-        public T GetById(Guid id)
+        public T GetById(int id)
         {
             return this.Context.Set<T>().Find(id);
         }
