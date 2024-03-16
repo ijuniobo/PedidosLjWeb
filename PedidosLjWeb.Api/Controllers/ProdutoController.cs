@@ -48,6 +48,18 @@ namespace PedidosLjWeb.Api.Controllers
             return Created($"/produto/{result.Id}", result);
         }
 
+        [HttpPost("Atualizar")]
+        public IActionResult Atualizar([FromBody] ProdutoDto dto)
+        {
+            if (ModelState is { IsValid: false })
+                return BadRequest();
+
+            var result = this._produtoService.Atualizar(dto);
+
+            return Created($"/produto/{result.Id}", result);
+        }
+
+
         [HttpDelete]
         public IActionResult Deletar([FromBody] ProdutoDto dto)
         {

@@ -23,10 +23,11 @@ builder.Services.AddAutoMapper(typeof(ProdutoProfile).Assembly);
 
 //Repositories
 builder.Services.AddScoped<ProdutoRepository>();
+builder.Services.AddScoped<LojaRepository>();
 
 //Services
 builder.Services.AddScoped<ProdutoService>();
-
+builder.Services.AddScoped<LojaService>();
 
 var app = builder.Build();
 

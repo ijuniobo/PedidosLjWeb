@@ -30,6 +30,14 @@ namespace PedidosLjWeb.Application.Servicos
             return this.Mapper.Map<ProdutoDto>(produto);
         }
 
+        public ProdutoDto Atualizar(ProdutoDto dto)
+        {
+            Produto produto = this.Mapper.Map<Produto>(dto);
+            this._produtoRepository.Update(produto);
+
+            return this.Mapper.Map<ProdutoDto>(produto);
+        }
+
         public ProdutoDto Obter(int id)
         {
             var produto = this._produtoRepository.GetById(id);
