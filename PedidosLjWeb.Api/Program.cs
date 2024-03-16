@@ -20,14 +20,15 @@ builder.Services.AddDbContext<PedidosLjWebContext>(c =>
 
 builder.Services.AddAutoMapper(typeof(ProdutoProfile).Assembly);
 
-
 //Repositories
 builder.Services.AddScoped<ProdutoRepository>();
 builder.Services.AddScoped<LojaRepository>();
+builder.Services.AddScoped<ClienteRepository>();
 
 //Services
 builder.Services.AddScoped<ProdutoService>();
 builder.Services.AddScoped<LojaService>();
+builder.Services.AddScoped<ClienteService>();
 
 var app = builder.Build();
 

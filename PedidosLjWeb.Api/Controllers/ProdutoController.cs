@@ -56,7 +56,7 @@ namespace PedidosLjWeb.Api.Controllers
 
             var result = this._produtoService.Atualizar(dto);
 
-            return Created($"/produto/{result.Id}", result);
+            return Ok(result);
         }
 
 
@@ -68,7 +68,7 @@ namespace PedidosLjWeb.Api.Controllers
 
             var result = this._produtoService.Deletar(dto);
 
-            return Created($"/produto/{result.Id}", result);
+            return Ok(result);
         }
 
     }

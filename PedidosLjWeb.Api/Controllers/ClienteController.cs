@@ -7,27 +7,27 @@ namespace PedidosLjWeb.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LojaController : ControllerBase
+    public class ClienteController : ControllerBase
     {
-        private LojaService _lojaService;
+        private ClienteService _clienteService;
 
-        public LojaController(LojaService lojaService)
+        public ClienteController(ClienteService clienteService)
         {
-            _lojaService = lojaService;
+            _clienteService = clienteService;
         }
 
         [HttpGet]
-        public IActionResult GetLojas()
+        public IActionResult GetClientes()
         {
-            var result = this._lojaService.ObterTodos();
+            var result = this._clienteService.ObterTodos();
 
             return Ok(result);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetLoja(int id)
+        public IActionResult GetCliente(int id)
         {
-            var result = this._lojaService.Obter(id);
+            var result = this._clienteService.Obter(id);
 
             if (result == null)
             {
@@ -38,35 +38,35 @@ namespace PedidosLjWeb.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar([FromBody] LojaDto dto)
+        public IActionResult Criar([FromBody] ClienteDto dto)
         {
             if (ModelState is { IsValid: false })
                 return BadRequest();
 
-            var result = this._lojaService.Criar(dto);
+            var result = this._clienteService.Criar(dto);
 
-            return Created($"/loja/{result.Id}", result);
+            return Created($"/cliente/{result.Id}", result);
         }
 
         [HttpPost("Atualizar")]
-        public IActionResult Atualizar([FromBody] LojaDto dto)
+        public IActionResult Atualizar([FromBody] ClienteDto dto)
         {
             if (ModelState is { IsValid: false })
                 return BadRequest();
 
-            var result = this._lojaService.Atualizar(dto);
+            var result = this._clienteService.Atualizar(dto);
 
             return Ok(result);
         }
 
 
         [HttpDelete]
-        public IActionResult Deletar([FromBody] LojaDto dto)
+        public IActionResult Deletar([FromBody] ClienteDto dto)
         {
             if (ModelState is { IsValid: false })
                 return BadRequest();
 
-            var result = this._lojaService.Deletar(dto);
+            var result = this._clienteService.Deletar(dto);
 
             return Ok(result);
         }
