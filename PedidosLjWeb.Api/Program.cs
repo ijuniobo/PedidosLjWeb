@@ -24,11 +24,14 @@ builder.Services.AddAutoMapper(typeof(ProdutoProfile).Assembly);
 builder.Services.AddScoped<ProdutoRepository>();
 builder.Services.AddScoped<LojaRepository>();
 builder.Services.AddScoped<ClienteRepository>();
+builder.Services.AddScoped<PedidoRepository>();
+builder.Services.AddScoped<ItemPedidoRepository>();
 
 //Services
 builder.Services.AddScoped<ProdutoService>();
 builder.Services.AddScoped<LojaService>();
 builder.Services.AddScoped<ClienteService>();
+builder.Services.AddScoped<PedidoService>();
 
 var app = builder.Build();
 

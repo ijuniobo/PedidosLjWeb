@@ -54,7 +54,6 @@ namespace PedidosLjWeb.Domain.Pedidos
                 item.PrecoTotal = item.Quantidade * item.PrecoUnitario;
                 qtdTotal += item.Quantidade;
                 vlTotal += item.PrecoTotal;
-                AdicionarItem(item);
             }
 
             this.IdLoja = idLoja;
