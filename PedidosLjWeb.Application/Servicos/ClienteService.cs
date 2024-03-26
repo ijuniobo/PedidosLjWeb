@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PedidosLjWeb.Application.Servicos
 {
-    public class ClienteService
+    public class ClienteService : IClienteService
     {
         private ClienteRepository _clienteRepository { get; set; }
         private IMapper Mapper { get; set; }

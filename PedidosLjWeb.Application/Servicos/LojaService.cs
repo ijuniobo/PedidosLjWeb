@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PedidosLjWeb.Application.Servicos
 {
-    public class LojaService
+    public class LojaService : ILojaService
     {
         private LojaRepository _lojaRepository { get; set; }
         private IMapper Mapper { get; set; }
