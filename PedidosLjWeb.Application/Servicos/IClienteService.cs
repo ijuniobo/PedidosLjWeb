@@ -20,5 +20,7 @@ namespace PedidosLjWeb.Application.Servicos
 
         ClienteDto Deletar(ClienteDto dto);
 
+        List<ClienteDto> Pesquisa(string nome);
+
     }
 }

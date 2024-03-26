@@ -71,5 +71,19 @@ namespace PedidosLjWeb.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("pesquisa/{nome}")]
+        public IActionResult PesquisaCliente(string nome)
+        {
+            var result = this._clienteService.Pesquisa(nome);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+
     }
 }

@@ -59,5 +59,12 @@ namespace PedidosLjWeb.Application.Servicos
             return this.Mapper.Map<ClienteDto>(cliente);
         }
 
+        public List<ClienteDto> Pesquisa(string nome)
+        {
+            var cliente = this._clienteRepository.Find(x=> x.Nome == nome);
+            return this.Mapper.Map<List<ClienteDto>>(cliente);
+        }
+
+
     }
 }
