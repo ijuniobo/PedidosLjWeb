@@ -28,6 +28,11 @@ namespace PedidosLjWeb.Domain.Pedidos
 
         public int IdLoja { get; set; }
 
+        public int ClienteId { get; set; }
+
+        public int LojaId { get; set; }
+
+
         public Cliente Cliente { get; set; }
 
         public Loja Loja { get; set; }

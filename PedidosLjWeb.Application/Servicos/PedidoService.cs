@@ -27,8 +27,10 @@ namespace PedidosLjWeb.Application.Servicos
         public PedidoDto Criar(PedidoDto dto)
         {
             Pedido pedido = this.Mapper.Map<Pedido>(dto);
-            var cliente = this._clienteRepository.GetById(pedido.IdCliente);
+            var cliente = this._clienteRepository.GetById(pedido.ClienteId);
             pedido.CriarPedido(pedido.DataPedido,cliente,pedido.IdLoja,pedido.Itens);
+            pedido.ClienteId = pedido.IdCliente;
+            pedido.LojaId = pedido.IdLoja;
             this._pedidoRepository.Save(pedido);
 
             return this.Mapper.Map<PedidoDto>(pedido);

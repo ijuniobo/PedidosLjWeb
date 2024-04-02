@@ -28,6 +28,10 @@ namespace PedidosLjWeb.Application.Dto
 
         public int IdLoja { get; set; }
 
+        public int ClienteId { get; set; }
+
+        public int LojaId { get; set; }
+
         public List<ItemPedidoDto> Itens { get; set; } = new List<ItemPedidoDto>();
 
     }

@@ -25,7 +25,7 @@ namespace PedidosLjWeb.Repository.Mapping
             builder.Property(x => x.Estado).IsRequired().HasMaxLength(2);
             builder.Property(x => x.Cnpj).IsRequired().HasMaxLength(100);
 
-            builder.HasMany(x => x.Pedidos).WithOne().OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(x => x.Pedidos).WithOne(x=> x.Loja).HasForeignKey(x=> x.LojaId).OnDelete(DeleteBehavior.Cascade);
 
         }
     }
